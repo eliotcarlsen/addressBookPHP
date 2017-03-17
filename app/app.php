@@ -46,6 +46,10 @@
       return $app['twig']->render('edit.html.twig');
     });
 
+    $app->post("/editsuccess", function () use($app) {
+        return $app['twig']->render('editsuccess.html.twig');
+    });
+
     $app->post("/delete_contacts", function () use($app) {
         Contact::deleteAll();
         return $app['twig']->render('deleteContacts.html.twig');
