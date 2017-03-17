@@ -30,10 +30,11 @@
         $searchContact = $_GET["searchName"];
         foreach ($_SESSION['list_of_contacts'] as $contact) {
           if ($searchContact == $contact->getName()) {
-            return $contact;
+            return $app['twig']->render('search.html.twig', array('contact' => $contact));
+          } else {
+              return $app['twig']->render('noMatch.html.twig');
           }
         }
-        return $app['twig']->render('search.html.twig', array('contact' => $contact));
     });
 
     $app->post("/delete_contacts", function () use($app) {
