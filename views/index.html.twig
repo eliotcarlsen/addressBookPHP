@@ -46,17 +46,18 @@
       </form>
       <h1>List of Contacts:</h1>
       <br>
-      <br>
-      {% for contact in contacts %}
-          <h4>{{ contact.getName }}</h4>
-          <h5>{{ contact.getPhone }}</h5>
-          <h5>{{ contact.getEmail }}</h5>
-          <h5>{{ contact.getStreet }}</h5>
-          <h5>{{ contact.getCity }},</h5>
-          <h5>{{ contact.getState }}</h5>
-          <h5>{{ contact.getZip }}</h5>
-          <img src="{{ contact.getImage }}" alt="image of {{ contact.getName }}" />
-      {% endfor %}
+          {% for contact in contacts %}
+              <h4>{{ contact.getName }}</h4>
+              <img src="{{ contact.getImage }}" alt="image of {{ contact.getName }}" />
+              <ul>
+                <li>{{ contact.getPhone }}</li>
+                <li>{{ contact.getEmail }}</li>
+                <li>{{ contact.getStreet }}</li>
+                <li>{{ contact.getCity }},</li>
+                <li>{{ contact.getState }}</li>
+                <li>{{ contact.getZip }}</li>
+              </ul>
+          {% endfor %}
       <br>
       <br>
       <br>
