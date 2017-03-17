@@ -15,23 +15,23 @@
     ));
 
     $app->get("/", function () use($app) {
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('index.html.twig', array('contacts' => $_SESSION['list_of_contacts']));
 
     });
 
     $app->post("/create_contact", function () use($app) {
         $newContact = new Contact($_POST['name'], $_POST['phone'], $_POST['address']);
         $newContact->save();
-        return $app['twig']->render('newContact.html.twig');
-
+        return $app['twig']->render('newContact.html.twig', array('contact' => $newContact));
     });
 
     $app->post("/delete_contacts", function () use($app) {
+        Contact::deleteAll();
         return $app['twig']->render('deleteContacts.html.twig');
     });
 
 
-
+    return $app;
 
 
 
