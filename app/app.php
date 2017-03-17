@@ -26,6 +26,16 @@
         return $app['twig']->render('newContact.html.twig', array('contact' => $newContact));
     });
 
+    $app->get("/search", function () use($app) {
+        $searchContact = $_GET["searchName"];
+        foreach ($_SESSION['list_of_contacts'] as $contact) {
+          if ($searchContact == $contact->getName()) {
+            return $contact;
+          }
+        }
+        return $app['twig']->render('search.html.twig', array('contact' => $contact));
+    });
+
     $app->post("/delete_contacts", function () use($app) {
         Contact::deleteAll();
         return $app['twig']->render('deleteContacts.html.twig');
