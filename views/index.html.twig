@@ -21,7 +21,7 @@
         <h1>Create Your Contact List!</h1>
           <div class="form-group">
             <label for="name">Enter Name</label>
-            <input id="{{ contact.getName }}" class="form-control" type="text" name="name" required>
+            <input class="form-control" type="text" name="name" required>
           </div>
           <div class="form-group">
             <label for="phone">Enter Phone</label>
@@ -66,13 +66,18 @@
                 <li>{{ contact.getState }}</li>
                 <li>{{ contact.getZip }}</li>
               </ul>
+              <form class="{{ contact.getName }}" action="/edit" method="post">
+                <button type="submit" name="{{ contact.getName }}">Edit Contact</button>
+              </form>
           {% endfor %}
       <br>
       <br>
       <br>
       <form action="/delete_contacts" method="post">
-        <button type="submit" name="button">Delete</button>
+        <button type="submit" name="button">Delete All</button>
       </form>
+      <br>
+      <br>
     </div>
   </body>
 </html>

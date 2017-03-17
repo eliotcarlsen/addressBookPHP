@@ -31,10 +31,13 @@
         foreach ($_SESSION['list_of_contacts'] as $contact) {
           if ($searchContact == $contact->getName()) {
             return $app['twig']->render('search.html.twig', array('contact' => $contact));
-          } else {
-              return $app['twig']->render('noMatch.html.twig');
           }
         }
+        return $app['twig']->render('noMatch.html.twig', array('contact' => $contact));
+    });
+
+    $app->get("/edit", function () use($app) {
+      return $app['twig']->render('edit.html.twig', array('contacts' => $_SESSION['list_of_contacts']));
     });
 
     $app->post("/delete_contacts", function () use($app) {
