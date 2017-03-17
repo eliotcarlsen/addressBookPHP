@@ -3,13 +3,25 @@
     {
         private $name;
         private $phone;
-        private $address;
+        private $email;
+        private $street;
+        private $city;
+        private $state;
+        private $zip;
+        private $image;
 
-        function __construct($name, $phone, $address)
+
+        function __construct($name, $phone, $email, $street, $city, $state, $zip, $image)
         {
             $this->name = $name;
             $this->phone = $phone;
-            $this->address = $address;
+            $this->email = $email;
+            $this->street = $street;
+            $this->city = $city;
+            $this->state = $state;
+            $this->zip = $zip;
+            $this->image = $image;
+
         }
 
         function setName($new_name)
@@ -32,14 +44,64 @@
             return $this->phone;
         }
 
-        function setAddress($new_address)
+        function setEmail($new_email)
         {
-            $this->address = $new_address;
+            $this->email = $new_email;
         }
 
-        function getAddress()
+        function getEmail()
         {
-            return $this->address;
+            return $this->email;
+        }
+
+        function setStreet($new_street)
+        {
+            $this->street = $new_street;
+        }
+
+        function getStreet()
+        {
+            return $this->street;
+        }
+
+        function setCity($new_city)
+        {
+            $this->city = $new_city;
+        }
+
+        function getCity()
+        {
+            return $this->city;
+        }
+
+        function setState($new_state)
+        {
+            $this->state = $new_state;
+        }
+
+        function getState()
+        {
+            return $this->state;
+        }
+
+        function setZip($new_zip)
+        {
+            $this->zip = $new_zip;
+        }
+
+        function getZip()
+        {
+            return $this->zip;
+        }
+
+        function setImage($new_image)
+        {
+            $this->image = $new_image;
+        }
+
+        function getImage()
+        {
+            return $this->image;
         }
 
         function save()
