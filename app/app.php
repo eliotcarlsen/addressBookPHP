@@ -37,7 +37,13 @@
     });
 
     $app->get("/edit", function () use($app) {
-      return $app['twig']->render('edit.html.twig', array('contacts' => $_SESSION['list_of_contacts']));
+      $editContact = $_GET["name"];
+      foreach ($_SESSION['list_of_contacts'] as $contact) {
+        if ($editContact == $contact->getName()) {
+          return $app['twig']->render('edit.html.twig', array('contact' => $contact));
+        }
+      }
+      return $app['twig']->render('edit.html.twig');
     });
 
     $app->post("/delete_contacts", function () use($app) {

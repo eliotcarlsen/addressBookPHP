@@ -8,9 +8,45 @@
   </head>
   <body>
     <div class="container">
-      <h1>Edit your Contact</h1>
-
-      <p>Back to <a href="/">HOME</a></p>
+      <h1>Edit {{ contact.getName }}</h1>
+      <form action="/edit_success" method="post">
+          <div class="form-group">
+            <label for="name">Edit Name</label>
+            <input class="form-control" type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Edit Phone</label>
+            <input class="form-control" type="number" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Edit Email</label>
+            <input class="form-control" type="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="street">Edit Street</label>
+            <input class="form-control" type="text" name="street" required>
+          </div>
+          <div class="form-group">
+            <label for="city">Edit City</label>
+            <input class="form-control" type="text" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="state">Edit State</label>
+            <input class="form-control" type="text" name="state" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">Edit Zip</label>
+            <input class="form-control" type="number" name="zip" required>
+          </div>
+          <div class="form-group">
+            <label for="image">Edit Image (url)</label>
+            <input class="form-control" type="text" name="image">
+          </div>
+          <button type="submit" name="button">Update</button>
+      </form>
+      <br>
+      <br>
+      <p>Back to the <a href="/">HOMEPAGE</a></p>
     </div>
   </body>
 </html>

@@ -66,8 +66,8 @@
                 <li>{{ contact.getState }}</li>
                 <li>{{ contact.getZip }}</li>
               </ul>
-              <form class="{{ contact.getName }}" action="/edit" method="post">
-                <button type="submit" name="{{ contact.getName }}">Edit Contact</button>
+              <form action="/edit" method="get">
+                <button type="submit" name="name" value="{{ contact.getName }}">Edit Contact</button>
               </form>
           {% endfor %}
       <br>
